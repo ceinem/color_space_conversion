@@ -73,11 +73,28 @@ def rgb2HEX(array):
     # print(r_1)
     # print(r_2)
 
+def HEX2rgb(hex_string):
+    r_1 = hex_string[0]
+    r_2 = hex_string[1]
+    r = int(r_1,16) * 16 + int(r_2,16)
 
+    g_1 = hex_string[2]
+    g_2 = hex_string[3]
+    g = int(g_1,16) * 16 + int(g_2,16)
+
+    b_1 = hex_string[4]
+    b_2 = hex_string[5]
+    b = int(b_1,16) * 16 + int(b_2,16)
+
+    print([r,g,b])
 
 
 print(rgb2hsv([50,100,150]))
 print(rgb2HEX([90,100,150]))
+HEX2rgb('5A6496')
+
+
+
 # List of color spaces to implement
 # HEX
 # RGB

@@ -45,13 +45,39 @@ def rgb2hsv(array):
     S = (maxVal - minVal)/maxVal
     V = maxVal
 
-
     return [H,S,V]
+
+
+def rgb2HEX(array):
+    r = array[0]
+    g = array[1]
+    b = array[2]
+
+    def toHex(num):
+        hex_val = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
+        num_2 = int(num%16)
+        num_1 = int((num - num_2)/16)
+        num_hex = hex_val[num_1] + hex_val[num_2]
+        return num_hex
+
+    if(r<0 or g<0 or b<0 or r>255 or g>255 or b>255):
+        print("Error, invalid input values")
+        return [-1,-1,-1]
+
+    hex_string = toHex(r) + toHex(g) + toHex(b)
+    # print(hex_string)
+    return(hex_string)
+
+    # print(toHex(90))
+    # print()
+    # print(r_1)
+    # print(r_2)
+
 
 
 
 print(rgb2hsv([50,100,150]))
-
+print(rgb2HEX([90,100,150]))
 # List of color spaces to implement
 # HEX
 # RGB

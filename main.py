@@ -116,6 +116,8 @@ def rgb2cmyk(array):
 def HEX2cmyk(hex_string):
     return rgb2cmyk(HEX2rgb(hex_string))
 
+def HEX2hsv(hex_string):
+    return rgb2hsv(HEX2rgb(hex_string))
 
 # print(rgb2cmyk([50,100,150]))
 # print(rgb2cmyk([90,100,150]))

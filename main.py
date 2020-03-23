@@ -79,7 +79,7 @@ def HEX2rgb(hex_string):
     b_2 = hex_string[5]
     b = int(b_1,16) * 16 + int(b_2,16)
 
-    print([r,g,b])
+    return [r,g,b]
 
 def rgb2cmyk(array):
     r = array[0]
@@ -113,13 +113,14 @@ def rgb2cmyk(array):
 
     return [C,M,Y,K]
 
+def HEX2cmyk(hex_string):
+    return rgb2cmyk(HEX2rgb(hex_string))
 
 
-
-print(rgb2cmyk([50,100,150]))
-print(rgb2cmyk([90,100,150]))
+# print(rgb2cmyk([50,100,150]))
+# print(rgb2cmyk([90,100,150]))
 # HEX2rgb('5A6496')
-
+# print(HEX2cmyk('5A6496'))
 
 
 # List of color spaces to implement

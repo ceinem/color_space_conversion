@@ -47,7 +47,6 @@ def rgb2hsv(array):
 
     return [H,S,V]
 
-
 def rgb2HEX(array):
     r = array[0]
     g = array[1]
@@ -65,13 +64,7 @@ def rgb2HEX(array):
         return [-1,-1,-1]
 
     hex_string = toHex(r) + toHex(g) + toHex(b)
-    # print(hex_string)
     return(hex_string)
-
-    # print(toHex(90))
-    # print()
-    # print(r_1)
-    # print(r_2)
 
 def HEX2rgb(hex_string):
     r_1 = hex_string[0]
@@ -88,10 +81,44 @@ def HEX2rgb(hex_string):
 
     print([r,g,b])
 
+def rgb2cmyk(array):
+    r = array[0]
+    g = array[1]
+    b = array[2]
 
-print(rgb2hsv([50,100,150]))
-print(rgb2HEX([90,100,150]))
-HEX2rgb('5A6496')
+    C = 0
+    M = 0
+    Y = 0
+    K = 0
+
+    if(r<0 or g<0 or b<0 or r>255 or g>255 or b>255):
+        print("Error, invalid input values")
+        return [-1,-1,-1]
+
+    # Black
+    if(r==0 & g==0 & b==0):
+        K = 1
+        return [C,M,Y,K]
+
+    C = 1 - r/255
+    M = 1 - g/255
+    Y = 1 - b/255
+
+    minCMY = min(C,min(M,Y))
+
+    C = (C - minCMY) / (1 - minCMY)
+    M = (M - minCMY) / (1 - minCMY)
+    Y = (Y - minCMY) / (1 - minCMY)
+    K = minCMY
+
+    return [C,M,Y,K]
+
+
+
+
+print(rgb2cmyk([50,100,150]))
+print(rgb2cmyk([90,100,150]))
+# HEX2rgb('5A6496')
 
 
 

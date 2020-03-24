@@ -119,6 +119,53 @@ def HEX2cmyk(hex_string):
 def HEX2hsv(hex_string):
     return rgb2hsv(HEX2rgb(hex_string))
 
+def rgb2bgr(array):
+    r = array[0]
+    g = array[1]
+    b = array[2]
+
+    return [b,g,r]
+
+def bgr2rgb(array)
+    r = array[2]
+    g = array[1]
+    b = array[0]
+
+    return [r,g,b]
+
+def bgr2HEX(array):
+    return rgb2HEX(bgr2rgb(array))
+
+def bgr2cmyk(array):
+    return rgb2cmyk(bgr2rgb(array))
+
+def bgr2hsv(array):
+    return rgb2hsv(bgr2rgb(array))
+
+def HEX2bgr(hex_string):
+    return rgb2bgr(HEX2rgb(hex_string))
+
+def cmyk2rgb(array):
+    c = array[0]
+    m = array[1]
+    y = array[2]
+    k = array[3]
+
+    r = 255 * (1 - c) * (1 - k)
+    g = 255 * (1 - m) * (1 - k)
+    b = 255 * (1 - y) * (1 - k)
+
+    return [r,g,b]
+
+def cmyk2HEX(array):
+    return rgb2HEY(cmyk2rgb(array))
+
+def cmyk2bgr(array):
+    return rgb2bgr(cmyk2rgb(array))
+
+def cmyk2hsv(array):
+    return rgb2hsv(cmyk2rgb(array))
+
 # print(rgb2cmyk([50,100,150]))
 # print(rgb2cmyk([90,100,150]))
 # HEX2rgb('5A6496')
